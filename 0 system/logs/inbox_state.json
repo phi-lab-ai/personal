@@ -1,7 +1,7 @@
 {
   "2026-03-31_demo-note.md": {
     "hash": "db976ea8cdcac9d172e1c11c8ec60cf1bfcbb1c8dd9b629057402e60ae578e6b",
-    "processed_at": "2026-03-31T22:49:20.123048",
+    "processed_at": "2026-04-01T00:26:30.142648",
     "raw_dir": "1 todo/raw/2026-03-31_demo-note_db976ea8"
   },
   "657740777_18355316428236780_3833102917489875658_n.jpg": {
@@ -18,5 +18,25 @@
     "hash": "f97f0fb1e0e1b239e096798895a9c89ea568115e2d1404af7f1fa1a2ba30ae41",
     "processed_at": "2026-03-31T22:56:09.735896",
     "raw_dir": "1 todo/raw/OREO HISTORY IN THE BAKING_f97f0fb1"
+  },
+  "test.jpg": {
+    "hash": "15f748c40d8947f6dc8a021112c8a21fd06bb6c54fd4d50ff8fee4fda2d63d02",
+    "processed_at": "2026-04-01T00:26:31.153788",
+    "raw_dir": "1 todo/raw/test_15f748c4"
+  },
+  "657317748_18103060820493604_8996871913552879233_n.jpg": {
+    "hash": "4d237b088942d713e7c4f711205f78142bd7f859e8ddd190506b3545b8bc5451",
+    "processed_at": "2026-04-01T00:26:30.815777",
+    "raw_dir": "1 todo/raw/657317748_18103060820493604_8996871913552879233_n_4d237b08"
+  },
+  "transcription-proof.aiff": {
+    "hash": "9574b8fc41e3060183e546cfa2346ccf5691517415add07db784e87e87b7f223",
+    "processed_at": "2026-04-01T00:26:31.154568",
+    "raw_dir": "1 todo/raw/transcription-proof_9574b8fc"
+  },
+  "transcription-proof.mp4": {
+    "hash": "fd785abb3279197bb12c7bae56dfaa756e5add025cc7df25c612c5d780b795d6",
+    "processed_at": "2026-04-01T00:26:33.905095",
+    "raw_dir": "1 todo/raw/transcription-proof_fd785abb"
   }
 }
