@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_MARKER=".kitos-root"
+
+if [ ! -f "$ROOT_MARKER" ]; then
+  echo "This command only runs inside the kitOS personal workspace root."
+  exit 1
+fi
+
+cmd="${1:-}"
+shift || true
+
+case "$cmd" in
+  kickoff)
+    ./"0 system/scripts/new_project.sh" "${1:-new-project}"
+    ;;
+  capture)
+    ./"0 system/scripts/new_task.sh" "$*"
+    ;;
+  next)
+    ./"0 system/scripts/next_task.sh"
+    ;;
+  review)
+    ./"0 system/scripts/promote_task.sh" "1 todo/${1:?task filename required}" review
+    ;;
+  archive)
+    ./"0 system/scripts/promote_task.sh" "1 review/${1:?task filename required}" archive
+    ;;
+  digest)
+    ./"0 system/scripts/weekly_review.sh"
+    ;;
+  insight)
+    ./"0 system/scripts/inbox_process.sh"
+    ;;
+  backup)
+    ./"0 system/scripts/backup_workspace.sh"
+    ;;
+  cleanup)
+    ./"0 system/scripts/cleanup_audit.sh"
+    ;;
+  watch)
+    ./"0 system/scripts/watch_inbox.sh"
+    ;;
+  *)
+    echo "Usage: ./0 system/scripts/kit <kickoff|capture|next|review|archive|digest|insight|backup|cleanup|watch> [args]"
+    exit 1
+    ;;
+esac

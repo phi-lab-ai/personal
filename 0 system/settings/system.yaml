@@ -1,0 +1,7 @@
+workspace_name: "kitOS personal"
+default_persona: "echo"
+status_values: [todo, doing, blocked, review, shipped, archived]
+priority_values: [p0, p1, p2, p3]
+risk_values: [low, medium, high]
+require_project_id_in_commits: true
+require_review_before_ship: true
