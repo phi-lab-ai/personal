@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+import argparse
 import hashlib
 import json
 import mimetypes
 import os
 import shutil
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -22,6 +24,14 @@ VIDEO_EXT = {'.mp4', '.mov', '.mkv', '.avi', '.webm', '.m4v'}
 
 def has_cmd(name: str) -> bool:
     return shutil.which(name) is not None
+
+
+def has_python_module(name: str) -> bool:
+    try:
+        __import__(name)
+        return True
+    except Exception:
+        return False
 
 
 def sha256_file(path: Path) -> str:
@@ -54,19 +64,31 @@ def extract_image_text(path: Path):
     return out, err
 
 
+def resolve_whisper_cmd():
+    if has_cmd('whisper'):
+        return ['whisper']
+    if has_cmd('openai-whisper'):
+        return ['openai-whisper']
+    if has_python_module('whisper'):
+        return [sys.executable, '-m', 'whisper']
+    return []
+
+
 def extract_audio_video_text(path: Path):
     # Requires ffmpeg + whisper CLI (openai-whisper)
     if not has_cmd('ffmpeg'):
         return '', 'ffmpeg not installed'
-    if not has_cmd('whisper'):
-        return '', 'whisper CLI not installed'
+
+    whisper_cmd = resolve_whisper_cmd()
+    if not whisper_cmd:
+        return '', 'whisper not installed (cli or python module)'
 
     tmp_wav = ROOT / '0 system' / 'logs' / f"tmp_{path.stem}.wav"
     out, err = run(['ffmpeg', '-y', '-i', str(path), '-vn', '-ac', '1', '-ar', '16000', str(tmp_wav)])
     if err:
         return '', f'ffmpeg extraction failed: {err}'
 
-    txt_out, werr = run(['whisper', str(tmp_wav), '--model', 'base', '--output_format', 'txt', '--output_dir', str(ROOT / '0 system' / 'logs')])
+    txt_out, werr = run(whisper_cmd + [str(tmp_wav), '--model', 'base', '--output_format', 'txt', '--output_dir', str(ROOT / '0 system' / 'logs')])
     txt_path = ROOT / '0 system' / 'logs' / f"{tmp_wav.stem}.txt"
     if txt_path.exists():
         text = txt_path.read_text(encoding='utf-8', errors='replace')
@@ -132,6 +154,10 @@ raw_data: "{raw_rel}"
 
 
 def main():
+    parser = argparse.ArgumentParser(description='Process inbox files from 1 todo into 1 review')
+    parser.add_argument('--force', action='store_true', help='Reprocess all files in 1 todo even if hashes are unchanged')
+    args = parser.parse_args()
+
     RAW.mkdir(parents=True, exist_ok=True)
     REVIEW.mkdir(parents=True, exist_ok=True)
     STATE.parent.mkdir(parents=True, exist_ok=True)
@@ -146,7 +172,7 @@ def main():
     for path in sorted(files):
         digest = sha256_file(path)
         prev = state.get(path.name)
-        if prev and prev.get('hash') == digest:
+        if (not args.force) and prev and prev.get('hash') == digest:
             continue
 
         ext = path.suffix.lower()
@@ -186,7 +212,8 @@ def main():
         processed += 1
 
     STATE.write_text(json.dumps(state, indent=2), encoding='utf-8')
-    print(f"Processed {processed} file(s).")
+    mode = ' (force)' if args.force else ''
+    print(f"Processed {processed} file(s){mode}.")
 
 
 if __name__ == '__main__':

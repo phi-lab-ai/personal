@@ -12,6 +12,21 @@ cmd="${1:-}"
 shift || true
 
 case "$cmd" in
+  run)
+    flow="${1:-}"
+    case "$flow" in
+      todo)
+        ./"0 system/scripts/inbox_process.sh" "${@:2}"
+        ;;
+      review)
+        ./"0 system/scripts/review_process.sh"
+        ;;
+      *)
+        echo "Usage: ./0 system/scripts/kit run <todo|review> [--force]"
+        exit 1
+        ;;
+    esac
+    ;;
   kickoff)
     ./"0 system/scripts/new_project.sh" "${1:-new-project}"
     ;;
@@ -22,7 +37,11 @@ case "$cmd" in
     ./"0 system/scripts/next_task.sh"
     ;;
   review)
-    ./"0 system/scripts/promote_task.sh" "1 todo/${1:?task filename required}" review
+    if [ $# -eq 0 ]; then
+      ./"0 system/scripts/review_process.sh"
+    else
+      ./"0 system/scripts/promote_task.sh" "1 todo/${1:?task filename required}" review
+    fi
     ;;
   archive)
     ./"0 system/scripts/promote_task.sh" "1 review/${1:?task filename required}" archive
@@ -43,7 +62,8 @@ case "$cmd" in
     ./"0 system/scripts/watch_inbox.sh"
     ;;
   *)
-    echo "Usage: ./0 system/scripts/kit <kickoff|capture|next|review|archive|digest|insight|backup|cleanup|watch> [args]"
+    echo "Usage: ./0 system/scripts/kit <run|kickoff|capture|next|review|archive|digest|insight|backup|cleanup|watch> [args]"
+    echo "Flow:  ./0 system/scripts/kit run <todo|review> [--force]"
     exit 1
     ;;
 esac
