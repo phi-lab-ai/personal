@@ -1,42 +1,38 @@
 {
   "2026-03-31_demo-note.md": {
     "hash": "db976ea8cdcac9d172e1c11c8ec60cf1bfcbb1c8dd9b629057402e60ae578e6b",
-    "processed_at": "2026-04-01T00:26:30.142648",
-    "raw_dir": "1 todo/raw/2026-03-31_demo-note_db976ea8"
+    "processed_at": "2026-04-01T10:38:11.326085",
+    "raw_dir": "1 todo/raw/2026-03-31_demo-note_md_db976ea8",
+    "status": "processed"
   },
   "657740777_18355316428236780_3833102917489875658_n.jpg": {
     "hash": "15f748c40d8947f6dc8a021112c8a21fd06bb6c54fd4d50ff8fee4fda2d63d02",
-    "processed_at": "2026-03-31T22:49:20.124268",
-    "raw_dir": "1 todo/raw/657740777_18355316428236780_3833102917489875658_n_15f748c4"
+    "processed_at": "2026-04-01T10:38:17.922679",
+    "raw_dir": "1 todo/raw/657740777_18355316428236780_3833102917489875658_n_jpg_15f748c4",
+    "status": "processed"
   },
   "AN ODE TO THE WHITE PAGE FROM THE SILVER SCREEN.jpg": {
     "hash": "482f61947528fe3b1ed452a388a8af6dc7330accd0d79f02db9a5bf495c42aa9",
-    "processed_at": "2026-03-31T22:54:44.024109",
-    "raw_dir": "1 todo/raw/AN ODE TO THE WHITE PAGE FROM THE SILVER SCREEN_482f6194"
+    "processed_at": "2026-04-01T10:38:18.274227",
+    "raw_dir": "1 todo/raw/AN ODE TO THE WHITE PAGE FROM THE SILVER SCREEN_jpg_482f6194",
+    "status": "processed"
   },
   "OREO HISTORY IN THE BAKING.jpg": {
     "hash": "f97f0fb1e0e1b239e096798895a9c89ea568115e2d1404af7f1fa1a2ba30ae41",
-    "processed_at": "2026-03-31T22:56:09.735896",
-    "raw_dir": "1 todo/raw/OREO HISTORY IN THE BAKING_f97f0fb1"
+    "processed_at": "2026-04-01T10:38:18.799675",
+    "raw_dir": "1 todo/raw/OREO HISTORY IN THE BAKING_jpg_f97f0fb1",
+    "status": "processed"
   },
-  "test.jpg": {
-    "hash": "15f748c40d8947f6dc8a021112c8a21fd06bb6c54fd4d50ff8fee4fda2d63d02",
-    "processed_at": "2026-04-01T00:26:31.153788",
-    "raw_dir": "1 todo/raw/test_15f748c4"
+  "2026-03-31_transcription-test.aiff": {
+    "hash": "7065c9afe6d54d24ad13147cdfe6fb43928777cb9da460dd62c4debd959f3e79",
+    "processed_at": "2026-04-01T10:38:14.888016",
+    "raw_dir": "1 todo/raw/2026-03-31_transcription-test_aiff_7065c9af",
+    "status": "processed"
   },
-  "657317748_18103060820493604_8996871913552879233_n.jpg": {
-    "hash": "4d237b088942d713e7c4f711205f78142bd7f859e8ddd190506b3545b8bc5451",
-    "processed_at": "2026-04-01T00:26:30.815777",
-    "raw_dir": "1 todo/raw/657317748_18103060820493604_8996871913552879233_n_4d237b08"
-  },
-  "transcription-proof.aiff": {
-    "hash": "9574b8fc41e3060183e546cfa2346ccf5691517415add07db784e87e87b7f223",
-    "processed_at": "2026-04-01T00:26:31.154568",
-    "raw_dir": "1 todo/raw/transcription-proof_9574b8fc"
-  },
-  "transcription-proof.mp4": {
-    "hash": "fd785abb3279197bb12c7bae56dfaa756e5add025cc7df25c612c5d780b795d6",
-    "processed_at": "2026-04-01T00:26:33.905095",
-    "raw_dir": "1 todo/raw/transcription-proof_fd785abb"
+  "2026-03-31_transcription-test.mp4": {
+    "hash": "605071b9f792deb09ccd69a2be8b7239a516d7cab9b887435fc90a96fe818624",
+    "processed_at": "2026-04-01T10:38:17.536327",
+    "raw_dir": "1 todo/raw/2026-03-31_transcription-test_mp4_605071b9",
+    "status": "processed"
   }
 }
