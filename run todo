@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "$0")" && pwd)"
+cd "$repo_dir"
+
+echo "Running: todo ingestion"
+./0\ system/scripts/kit run todo "$@"
+
+echo "Done: run todo"
