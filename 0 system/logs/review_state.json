@@ -1,0 +1,76 @@
+{
+  "2026-04-01_review-2026-03-31-demo-note.md": {
+    "hash": "5610aa0b14105bca5a104f82052dc0f3f7642ff8ec9183d95f19fbf15c4b382a",
+    "status": "curated",
+    "hub_file": "3 hubs/_triage/2026-04-01_2026-03-31-demo-note_db976ea8.md",
+    "curated_at": "2026-04-01T00:24:51.177013"
+  },
+  "2026-04-01_review-2026-03-31-transcription-test.md": {
+    "hash": "c9cae64be262eb5c56749a6a3bff0806fff4c4293bde4e6c31c2dca08247eaa9",
+    "status": "curated",
+    "hub_file": "3 hubs/_triage/2026-04-01_2026-03-31-transcription-test_605071b9.md",
+    "curated_at": "2026-04-01T00:24:51.177395"
+  },
+  "2026-04-01_review-657740777-18355316428236780-3833102917489875658-n.md": {
+    "hash": "e09442f59c169b05e3c7083e96667365046631e816b4631543cf348629058d8d",
+    "status": "curated",
+    "hub_file": "3 hubs/_triage/2026-04-01_657740777-18355316428236780-3833102917489875658-n_15f748c4.md",
+    "curated_at": "2026-04-01T00:24:51.177994"
+  },
+  "2026-04-01_review-an-ode-to-the-white-page-from-the-silver-screen.md": {
+    "hash": "5eec43f92dc6da78b802d006a3e0a6e9fd1d09f8c15d18c1a3980d0b905b2192",
+    "status": "curated",
+    "hub_file": "3 hubs/_triage/2026-04-01_an-ode-to-the-white-page-from-the-silver-screen_482f6194.md",
+    "curated_at": "2026-04-01T00:24:51.178332"
+  },
+  "2026-04-01_review-oreo-history-in-the-baking.md": {
+    "hash": "ab130bc7f4f721176ab7dbbb6251541f2f3f7ce71c6b1dbbed2b423bebeb10da",
+    "status": "curated",
+    "hub_file": "3 hubs/_triage/2026-04-01_oreo-history-in-the-baking_f97f0fb1.md",
+    "curated_at": "2026-04-01T00:24:51.178614"
+  },
+  "2026-04-01_review-2026-03-31-demo-note-md.md": {
+    "hash": "95f87c549a0cdb1ac67bcaf2b21389ebbefc00dc71da60f2b54d0a343cfa5357",
+    "status": "archived",
+    "hub_file": "3 hubs/notes-and-docs/2026-04-01_2026-03-31-demo-note.md",
+    "archived_review": "1 archive/reviews/2026-04-01_review-2026-03-31-demo-note-md.md",
+    "archived_source": "1 archive/originals/2026-03-31_demo-note.md",
+    "curated_at": "2026-04-01T10:38:33.419182",
+    "routing_method": "hybrid-semantic",
+    "routing_confidence": "0.81"
+  },
+  "2026-04-01_review-2026-03-31-transcription-test-aiff.md": {
+    "hash": "e7941f41b308384da2e2c97ac51f224647bd36a417154fee1a75edd91ed570eb",
+    "status": "archived",
+    "hub_file": "3 hubs/campaign-ideas/2026-04-01_2026-03-31-transcription-test.md",
+    "archived_review": "1 archive/reviews/2026-04-01_review-2026-03-31-transcription-test-aiff.md",
+    "archived_source": "1 archive/originals/2026-03-31_transcription-test.aiff",
+    "curated_at": "2026-04-01T10:38:33.420389",
+    "routing_method": "hybrid-semantic",
+    "routing_confidence": "0.27"
+  },
+  "2026-04-01_review-2026-03-31-transcription-test-mp4.md": {
+    "hash": "26b98f68e031c5f044f750fcba50b40d8564f3f2f968f274618c457068a96c50",
+    "status": "review_draft",
+    "proposed_route": "campaign-ideas",
+    "prepared_at": "2026-04-01T10:38:22.374340"
+  },
+  "2026-04-01_review-657740777-18355316428236780-3833102917489875658-n-jpg.md": {
+    "hash": "cc005112a60373e2de36c84c4a15613ef5a8917451558ec031c0491ddac91065",
+    "status": "review_draft",
+    "proposed_route": "copywriting",
+    "prepared_at": "2026-04-01T10:38:22.374713"
+  },
+  "2026-04-01_review-an-ode-to-the-white-page-from-the-silver-screen-jpg.md": {
+    "hash": "367448f065a7378805028f7efa1b5924e7830eb161d6cec4c44a83907cf79a60",
+    "status": "review_draft",
+    "proposed_route": "video-storytelling",
+    "prepared_at": "2026-04-01T10:38:22.375307"
+  },
+  "2026-04-01_review-oreo-history-in-the-baking-jpg.md": {
+    "hash": "c6f73a1bb354addb2140907a6072b01bcef786de3bad54ec99d179718bd6245d",
+    "status": "review_draft",
+    "proposed_route": "media-transcripts",
+    "prepared_at": "2026-04-01T10:38:22.375832"
+  }
+}

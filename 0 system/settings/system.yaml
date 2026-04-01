@@ -1,7 +1,76 @@
-workspace_name: "kitOS personal"
-default_persona: "echo"
-status_values: [todo, doing, blocked, review, shipped, archived]
-priority_values: [p0, p1, p2, p3]
-risk_values: [low, medium, high]
-require_project_id_in_commits: true
-require_review_before_ship: true
+{
+  "workspace_name": "kitOS personal",
+  "default_persona": "echo",
+  "status_values": ["todo", "doing", "blocked", "review", "shipped", "archived"],
+  "priority_values": ["p0", "p1", "p2", "p3"],
+  "risk_values": ["low", "medium", "high"],
+  "require_project_id_in_commits": true,
+  "require_review_before_ship": true,
+  "lifecycle_states": ["todo", "review_draft", "review_approved", "curated", "archived"],
+  "contracts": {
+    "review_card": {
+      "required_fields": [
+        "id",
+        "source_file",
+        "source_hash",
+        "raw_data",
+        "content_type",
+        "summary_1line",
+        "intent",
+        "candidate_hubs",
+        "routing_reason",
+        "understanding_confidence",
+        "application_confidence",
+        "actionability_score",
+        "status"
+      ]
+    },
+    "hub_card": {
+      "required_fields": [
+        "id",
+        "title",
+        "type",
+        "domain",
+        "summary_1line",
+        "source_file",
+        "source_review",
+        "source_hash",
+        "created_at"
+      ]
+    },
+    "archive_record": {
+      "required_fields": [
+        "status",
+        "routing_decision",
+        "routing_confidence",
+        "archived_source",
+        "archived_review",
+        "curated_hub",
+        "curated_at"
+      ]
+    },
+    "state_logs": {
+      "required_fields": [
+        "inbox_state",
+        "review_state",
+        "ingestion_report",
+        "routing_audit",
+        "maturity_score"
+      ]
+    }
+  },
+  "quality_thresholds": {
+    "schema_completeness": 1.0,
+    "source_movement_integrity": 1.0,
+    "no_silent_failures": 1.0,
+    "ingestion_success": 0.95,
+    "actionability_quality": 0.85,
+    "routing_precision": 0.8,
+    "determinism": 0.95
+  },
+  "automation_gate": {
+    "enabled": false,
+    "blocked_until_maturity": true,
+    "required_consecutive_quality_passes": 2
+  }
+}

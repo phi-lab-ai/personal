@@ -12,38 +12,87 @@ cmd="${1:-}"
 shift || true
 
 case "$cmd" in
+  run)
+    flow="${1:-}"
+    case "$flow" in
+      todo)
+        ./'0 system/scripts/inbox_process.sh' "${@:2}"
+        ;;
+      review)
+        ./'0 system/scripts/review_process.sh' "${@:2}"
+        ;;
+      *)
+        echo "Usage: ./0 system/scripts/kit run <todo|review> [options]"
+        echo "todo options:   --force --strict --report"
+        echo "review options: --prepare --apply"
+        exit 1
+        ;;
+    esac
+    ;;
+  validate)
+    python3 "0 system/scripts/validate_schema.py"
+    ;;
+  quality-check)
+    python3 "0 system/scripts/quality_eval.py"
+    ;;
   kickoff)
-    ./"0 system/scripts/new_project.sh" "${1:-new-project}"
+    ./'0 system/scripts/new_project.sh' "${1:-new-project}"
     ;;
   capture)
-    ./"0 system/scripts/new_task.sh" "$*"
+    ./'0 system/scripts/new_task.sh' "$*"
     ;;
   next)
-    ./"0 system/scripts/next_task.sh"
+    ./'0 system/scripts/next_task.sh'
     ;;
   review)
-    ./"0 system/scripts/promote_task.sh" "1 todo/${1:?task filename required}" review
+    if [ $# -eq 0 ]; then
+      ./'0 system/scripts/review_process.sh' --prepare
+    else
+      ./'0 system/scripts/promote_task.sh' "1 todo/${1:?task filename required}" review
+    fi
     ;;
   archive)
-    ./"0 system/scripts/promote_task.sh" "1 review/${1:?task filename required}" archive
+    ./'0 system/scripts/promote_task.sh' "1 review/${1:?task filename required}" archive
     ;;
   digest)
-    ./"0 system/scripts/weekly_review.sh"
+    ./'0 system/scripts/weekly_review.sh'
     ;;
   insight)
-    ./"0 system/scripts/inbox_process.sh"
+    ./'0 system/scripts/inbox_process.sh'
     ;;
   backup)
-    ./"0 system/scripts/backup_workspace.sh"
+    ./'0 system/scripts/backup_workspace.sh'
     ;;
   cleanup)
-    ./"0 system/scripts/cleanup_audit.sh"
+    ./'0 system/scripts/cleanup_audit.sh'
     ;;
   watch)
-    ./"0 system/scripts/watch_inbox.sh"
+    ready="$(python3 - <<'PY'
+import json
+from pathlib import Path
+p = Path('0 system/logs/maturity_score.json')
+if not p.exists():
+    print('false')
+else:
+    try:
+        data = json.loads(p.read_text(encoding='utf-8'))
+        print('true' if data.get('automation_ready') else 'false')
+    except Exception:
+        print('false')
+PY
+)"
+    if [ "$ready" = "true" ]; then
+      ./'0 system/scripts/watch_inbox.sh'
+    else
+      echo "watch is blocked by maturity gate."
+      echo "Run ./0 system/scripts/kit quality-check until automation_ready becomes true."
+      exit 1
+    fi
     ;;
   *)
-    echo "Usage: ./0 system/scripts/kit <kickoff|capture|next|review|archive|digest|insight|backup|cleanup|watch> [args]"
+    echo "Usage: ./0 system/scripts/kit <run|validate|quality-check|kickoff|capture|next|review|archive|digest|insight|backup|cleanup|watch> [args]"
+    echo "Flow:  ./0 system/scripts/kit run todo [--force --strict --report]"
+    echo "Flow:  ./0 system/scripts/kit run review [--prepare|--apply]"
     exit 1
     ;;
 esac

@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-04-01T10:40:29.643525",
+  "metrics": {
+    "schema_completeness": 1.0,
+    "source_movement_integrity": 1.0,
+    "no_silent_failures": 1.0,
+    "ingestion_success": 1.0,
+    "actionability_quality": 1.0,
+    "routing_precision": 1.0,
+    "determinism": 1.0,
+    "extraction_nonempty_rate": 1.0
+  },
+  "thresholds": {
+    "schema_completeness": 1.0,
+    "source_movement_integrity": 1.0,
+    "no_silent_failures": 1.0,
+    "ingestion_success": 0.95,
+    "actionability_quality": 0.85,
+    "routing_precision": 0.8,
+    "determinism": 0.95
+  },
+  "checks": {
+    "schema_completeness": true,
+    "source_movement_integrity": true,
+    "no_silent_failures": true,
+    "ingestion_success": true,
+    "actionability_quality": true,
+    "routing_precision": true,
+    "determinism": true
+  },
+  "passed": true,
+  "consecutive_passes": 2,
+  "required_consecutive_passes": 2,
+  "automation_ready": true,
+  "determinism_snapshot": "ffd57ac41bc2b2e2b81cf1b67ed82faa83e456071c04c3775512155af0afaa6f"
+}
